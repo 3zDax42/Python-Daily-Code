@@ -25,20 +25,26 @@ class Heart(Shape):
         pygame.draw.circle(surface, self.color, left_circle_center, 20)
         pygame.draw.circle(surface, self.color, right_circle_center, 20)
         pygame.draw.polygon(surface, self.color, triangle_points)
-
+class Square(Shape):
+    def draw(self, surface):
+        pygame.draw.rect(surface, self.color, (self.x, self.y, 100, 80),5)
 # Create instances of Heart
 Heart_list = []
 for i in range (8):
     for j in range (4):
         Heart_list.append(Heart(i*100+40, j*80+20, (250,250,250)))
+for i in range (9):
+    for j in range (5):
+        Heart_list.append(Square(i*100-60, j*80-40, (0,0,250)))
+
 # Draw everything
 for i in range(len(Heart_list)):
     Heart_list[i].draw(screen)
 
-text1 = font.render('I Love You!', True, (250, 100, 100))
-text2 = font.render('Happy Valentines Day', True, (250, 0, 0))
+text1 = font.render('This is a maditory project!', True, (250, 0, 0))
+text2 = font.render('So there\'s your Happy Valentines Day project', True, (250, 0, 0))
 screen.blit(text1, (310, 50))
-screen.blit(text2, (400, 150))
+screen.blit(text2, (50, 150))
 screen.blit(img, (0, 300))
 
 pygame.display.flip()
