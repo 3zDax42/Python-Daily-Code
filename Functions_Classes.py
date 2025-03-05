@@ -19,3 +19,23 @@
 #         print(i)
 # count_down_up(6)
 
+class BankAccount:
+    def __init__(self, Name, Account_Number, Initial_Balance):
+        self.Name = Name
+        self.Account_Number = Account_Number
+        self.Balance = Initial_Balance
+    def Deposit(self, Amount):
+        self.Balance += Amount
+    def Withdraw(self, Amount):
+        if Amount > self.Balance:
+            print("Not enought money in balance.")
+        else: self.Balance -= Amount
+    def Check_Balance(self):
+        print(self.Balance)
+Gary = BankAccount("Gary", 12, 1020)
+Gary.Check_Balance()
+Gary.Deposit(400)
+Gary.Check_Balance()
+Gary.Withdraw(2000)
+Gary.Withdraw(700)
+Gary.Check_Balance()
